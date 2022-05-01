@@ -56,6 +56,10 @@ export default {
       return store.state.currentPath;
     });
 
+    
+    // let getInnerDirectOnline = JSON.parse(localStorage.getItem("getInnerDirectOnline"));
+    // console.log("gdhbfdsfj",getInnerDirectOnline)
+ 
     watch(
       path,
       (newValue, oldValue) => {

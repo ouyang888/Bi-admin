@@ -11,9 +11,9 @@ export const action = {
     // }
     switch (params.path) {
       case 's':
-        dispatch('dashboard', { code: "directTotalDashboard", date: "2022-02" }) //销向汇总 -- 顶部：仪表盘
-        dispatch('directboardSAB', { code: "directTotalDashboardSAB", date: "2022-02" }) //销向汇总 -- 顶部：仪表盘
-        dispatch('getFristPanel')
+        dispatch('dashboard', { code: "directTotalDashboard", date: "2022-03" }) //销向汇总 -- 顶部：仪表盘
+        dispatch('directboardSAB', { code: "directTotalDashboardSAB", date: "2022-03" }) //销向汇总 -- 顶部：仪表盘
+        // dispatch('getFristPanel')
         dispatch('getCardData')
         dispatch('getChartData')
         dispatch('getSalesSummaryTable')
@@ -21,8 +21,8 @@ export const action = {
         dispatch('getInnerDirectChart', { code: "directTotalInnerChart", date: "2022-01-01,2022-10-01,2022-01-01,2022-10-01" })
         break;
       case 'productCoAll':
-        dispatch('getProductCoTable', { inner: { code: 'directLevelInnerBottom', date: '2022-02' }, outer: { code: 'directLeveOutterBottom', date: '2022-02' } })
-        dispatch("getCard", { code: 'cooperModel4CategoryTopTotal', date: '2022-02' })
+        dispatch('getProductCoTable', { inner: { code: 'directLevelInnerBottom', date: '2022-03' }, outer: { code: 'directLeveOutterBottom', date: '2022-03' } })
+        dispatch("getCard", { code: 'cooperModel4CategoryTopTotal', date: '2022-03' })
         break;
       case 'saleDir':
 
@@ -30,10 +30,11 @@ export const action = {
       case 'productCo':
         break;
       case 'domestic':
-        dispatch('getPanel', { code: 'innerDirectTopTotal' , date: '2022-02'})
-        dispatch('getPanelSab', { code: 'innerDirectTopSAB' ,date: '2022-02'})
-        dispatch('queryData', { code: 'directITotalInnerTotal', date: '2022-3' })
-        dispatch('queryCardData', { code: 'innerDirectInOutKard', date: '2022-02' })
+        dispatch('getDomesticOnlineTable')
+        dispatch('getPanel', { code: 'innerDirectTopTotal', date: '2022-03' })
+        dispatch('getPanelSab', { code: 'innerDirectTopSAB', date: '2022-03' })
+        dispatch('queryData', { code: 'directITotalInnerTotal', date: '2022-03' })
+        dispatch('queryCardData', { code: 'innerDirectInOutKard', date: '2022-03' })
         dispatch('queryCardSAB', { code: 'innerDirectRightSAB', date: '2022-03' })
         dispatch('getInnerDirectChart', { code: "innerDirectChart", date: "2022-01-01,2022-10-01,2022-01-01,2022-10-01" })
         commit("setTableOneHeading", "线上");
@@ -41,10 +42,11 @@ export const action = {
         // commit("setTableList", ...state.demosticDirectOnOnline);
         break;
       case 'exprot':
+        dispatch('getOutineSummaryTable')
         dispatch('queryData', { code: 'directITotalInnerTotal' })
-        dispatch('getPanel', { code: 'sellOutTopDashBoard' })
-        dispatch('getPanelSab', { code: 'sellOutTopDashBoardSAB' })
-        dispatch('getInnerDirectChart', { code: "sellOuttotalchart", date: "2022-02" })
+        dispatch('getPanel', { code: 'sellOutTopDashBoard',date: "2022-03" })
+        dispatch('getPanelSab', { code: 'sellOutTopDashBoardSAB',date: "2022-03" })
+        dispatch('getInnerDirectChart', { code: "sellOuttotalchart", date: "2022-03" })
         commit("setTableOneHeading", "区域");
         commit("setTableTwoHeading", "大区");
         // commit("setTableList", ...state.placeArea);
@@ -55,7 +57,7 @@ export const action = {
         commit("setTableOneHeading", "通路-自营");
         commit("setTableTwoHeading", "通路-代运营");
         // commit("setTableList", ...state.demosticDirectOnOnline);
-        dispatch("getCard", { code: 'onlineTopCooprLevel2', date: '2022-02' })
+        dispatch("getCard", { code: 'onlineTopCooprLevel2', date: '2022-03' })
         break;
       case 'domesticOffLine':
         dispatch('getPanel', { code: 'innerDirectTopTotal' })
@@ -63,7 +65,7 @@ export const action = {
 
         commit("setTableOneHeading", "通路");
         commit("setTableTwoHeading", "重点客户");
-        dispatch("getCard", { code: 'offLineRightCooper2', date: '2022-02' })
+        dispatch("getCard", { code: 'offLineRightCooper2', date: '2022-03' })
         break;
       case 'domesticProductCoOnline':
         break;
@@ -76,13 +78,13 @@ export const action = {
         // commit("setTableList", ...state.outlineComp);
         break;
       case 'domesticOnLinePlatform':
-        // dispatch("getCard",{code:'offlinePlatformLe3',date:'2022-02'})
+        // dispatch("getCard",{code:'offlinePlatformLe3',date:'2022-03'})
         // commit("setTableList", ...state.demosticDirectOnOnlineShop);
         break;
       case 'domesticOffLinePlace':
         break;
       case 'domesticOnLinePlatformCo':
-        // dispatch("queryrightShopData",{code:'platformStoreTopTotal',date:'2022-02'})
+        // dispatch("queryrightShopData",{code:'platformStoreTopTotal',date:'2022-03'})
         break;
       case 'domesticOffLinePlaceCo':
         // commit("setTableList", ...state.demosticDirectOnOnline);
@@ -92,8 +94,8 @@ export const action = {
         break;
       case 'exprotAreaProductCo':
         dispatch('getTableList', {
-          inner: { code: 'sellOutRegionManagerDirectBottomSales', date: '2022-02%2C2022-02%2C2022-02%2C2022-02' },
-          outer: { code: 'sellOutRegionManagerDirectBottomKA', date: '2022-02%2C2022-02%2C2022-02%2C2022-02' }
+          inner: { code: 'sellOutRegionManagerDirectBottomSales', date: '2022-03%2C2022-03%2C2022-03%2C2022-03' },
+          outer: { code: 'sellOutRegionManagerDirectBottomKA', date: '2022-03%2C2022-03%2C2022-03%2C2022-03' }
         })
         break;
       case 'domesticOnLineShop':
@@ -123,8 +125,8 @@ export const action = {
         break;
       case 'exprotSalesProductCo':
         dispatch('getTableList', {
-          inner: { code: 'sellOutRegionManagerDirectBottomSales', date: '2022-02%2C2022-02%2C2022-02' },
-          outer: { code: 'sellOutRegionManagerDirectBottomKA', date: '2022-02%2C2022-02%2C2022-02' }
+          inner: { code: 'sellOutRegionManagerDirectBottomSales', date: '2022-03%2C2022-03%2C2022-03' },
+          outer: { code: 'sellOutRegionManagerDirectBottomKA', date: '2022-03%2C2022-03%2C2022-03' }
         })
         break
       default:
@@ -162,7 +164,7 @@ export const action = {
         list.title.push(item.cooprLevel1)
         list.dataList.push(item.totalAmt)
         commit('getForExport', list);
-        console.log("000888111dddd", list)
+        // console.log("000888111dddd", list)
       })
     })
   },
@@ -175,19 +177,20 @@ export const action = {
     axios.get(`/api/query?code=${params.code}&parameter=${params.date}`)
       .then(res => {
         let obj = res.rows && res.rows[0];
-        let onLine = { onLineDate: [], lineTotalCnyAmt: [],lineX:"" }
-        let lineDown = { lineDownDate: [], lineDownTotalCnyAmt: [],lineDownLine:"" }
-        let general = { generalDate: [], general: [],allLine:"" }
+        let onLine = { onLineDate: [], lineTotalCnyAmt: [], lineX: "" }
+        let lineDown = { lineDownDate: [], lineDownTotalCnyAmt: [], lineDownLine: "" }
+        let general = { generalDate: [], general: [], allLine: "" }
 
-        let division = { divisionDate: [], divisionCnyAmt: [],divisionLine:"" }
-        let innerDirect = { innerDirectDate: [], innerDirectCnyAmt: [],getGeneraLine:"" }
-        let outerDirect = { outerDirectDate: [], outerDirectCnyAmt: [], directOuListLine:""}
+        let division = { divisionDate: [], divisionCnyAmt: [], divisionLine: "" }
+        let innerDirect = { innerDirectDate: [], innerDirectCnyAmt: [], getGeneraLine: "" }
+        let outerDirect = { outerDirectDate: [], outerDirectCnyAmt: [], directOuListLine: "" }
 
         res.rows.filter((item) => {
           var timeArr = item.orderDate.replace(" ", ":").replace(/\:/g, "-").split("-");
           var yue = timeArr[1];
           var ri = timeArr[2];
-          // console.log("11122kkkk",) 
+          // console.log("nkdbfudsbf",res.rows)
+          // console.log("11122kkkggk",item) 
           if (item.cooprLevel1 == '线上') {
             onLine.onLineDate.push(yue + '-' + ri)
             onLine.lineTotalCnyAmt.push(item.totalCnyAmt)
@@ -196,14 +199,11 @@ export const action = {
             lineDown.lineDownDate.push(yue + '-' + ri)
             lineDown.lineDownTotalCnyAmt.push(item.totalCnyAmt)
             lineDown.lineDownLine = item.saleAvgTaskQty
-          }
-          
-          // if (item.directName != undefined) {
-          if (item.directName == '事业部') {
+          } else if (item.directName == '事业部') {
             division.divisionDate.push(yue + '-' + ri)
             division.divisionCnyAmt.push(item.totalCnyAmt)
             division.divisionLine = item.saleAvgTaskQty
-          }else if (item.directName == '内销') {
+          } else if (item.directName == '内销') {
             innerDirect.innerDirectDate.push(yue + '-' + ri)
             innerDirect.innerDirectCnyAmt.push(item.totalCnyAmt)
             innerDirect.getGeneraLine = item.saleAvgTaskQty
@@ -212,19 +212,23 @@ export const action = {
             outerDirect.outerDirectCnyAmt.push(item.totalCnyAmt)
             outerDirect.directOuListLine = item.saleAvgTaskQty
           }
-          // }
-          general.allLine = item.saleAvgTaskQty + item.saleAvgTaskQty
-          general.general.push(item.totalCnyAmt + item.totalCnyAmt)
-        })
-        
 
-        localStorage.setItem("getDirectTotalInnerChart", JSON.stringify(division))
+          general.allLine = item.saleAvgTaskQty + item.saleAvgTaskQty
+          general.general.push(item.totalCnyAmt + item.totalCnyAmt) 
+         
+        })
         localStorage.setItem("getInnerDirectOnline", JSON.stringify(onLine))
+        localStorage.setItem("getDirectTotalInnerChart", JSON.stringify(division))
         localStorage.setItem("getInnerDirectLineDown", JSON.stringify(lineDown))
         localStorage.setItem("getGeneral", JSON.stringify(general))
-
         localStorage.setItem("innerDirect", JSON.stringify(innerDirect))
         localStorage.setItem("outerDirect", JSON.stringify(outerDirect))
+        
+       
+      
+
+        // console.log("111222",onLine)
+
         // commit("getDirectTotalInnerChart", division)
         // commit('getInnerDirectOnline', onLine);
         // commit('getInnerDirectLineDown', lineDown);
@@ -333,9 +337,9 @@ export const action = {
     d = String(d.getFullYear()) + '-' + (new Date().getMonth()).toString().padStart(2, "0")
     axios.get(`/api/query?code=${param.code}&parameter=${param.date ? param.date : d}`, {})
       .then(res => {
-       
-          localStorage.setItem("setPanel", JSON.stringify(res.rows))
-       
+
+        localStorage.setItem("setPanel", JSON.stringify(res.rows))
+
       }).catch(err => {
         console.log(err, 'errerrerrerr')
       })
@@ -360,7 +364,6 @@ export const action = {
       })
   },
   queryCardData({ state, commit }, param) {
-
     axios.get(`/api/query?code=${param.code}&parameter=${param.date ? param.date : d}`, {})
       .then(res => {
         // let innerSabUp = createInnerSab(obj.innerSab, '线上');
@@ -500,10 +503,10 @@ export const action = {
         })
         // console.log(obj,'objobjobjobj');
         commit('setTableList', obj);
-        console.log('innerDirectOnOutline', res.rows, obj)
+        // console.log('innerDirectOnOutline', res.rows, obj)
       }).
       then(err => {
-        console.log(err, 'innerDirectOnOutline')
+        // console.log(err, 'innerDirectOnOutline')
       })
   },
   // 内销线上汇总表格
@@ -531,20 +534,20 @@ export const action = {
   // 外销汇总表格
   async getOutineSummaryTable({ state, commit }) {
     let obj = { innerDirect: [], outerDirect: [] }
-    axios.get('api/query?code=sellOutTotalOnlineBottom&parameter=2022-03', {}).
+    axios.get('api/query?code=sellOutTotalOnlineBottom&parameter=2022-03,2022-03', {}).
       then(res => {
         obj.innerDirect.push(...res.rows)
       }).
       catch(err => {
       })
-    axios.get('api/query?code=sellOutTotalOfflineBottom&parameter=2022-03', {}).
+    axios.get('api/query?code=sellOutTotalOfflineBottom&parameter=2022-03,2022-03', {}).
       then(res => {
         obj.outerDirect.push(...res.rows)
       }).
       catch(err => {
       })
     commit('setTableList', obj)
-    console.log(obj, state.tableList, 'tableList');
+    // console.log(obj, state.tableList, 'tableList');
   },
   // 内销-线上-合作模式三汇总页（按平台类型）
   demosticOnlineShopTable({ state, commit }) {
@@ -634,11 +637,11 @@ export const action = {
   // 内销-线下-合作模式四产司页（如KA下产司）（新增）table
   demosticOfflineWorkModeTable({ state, commit }) {
     let obj = { innerDirect: [], outerDirect: [] }
-    axios.get('api/cooperModel3SellTotal&parameter=2022-02%2C2022-02', {}).
+    axios.get('api/cooperModel3SellTotal&parameter=2022-03%2C2022-03', {}).
       then(res => {
         obj.innerDirect.push(...res.rows)
       })
-    axios.get('api/cooperModel3SellTotal&parameter=2022-02%2C2022-02', {}).
+    axios.get('api/cooperModel3SellTotal&parameter=2022-03%2C2022-03', {}).
       then(res => {
         obj.innerDirect.push(...res.rows)
       })
@@ -745,7 +748,7 @@ export const action = {
 
         let obj = {};
 
-        let a = [{ "monthDate": "2022-02", "businessModel": null, "position": null, "businessEntityName": "环境", "positionRatio": 1 }, { "monthDate": "2022-02", "businessModel": null, "position": null, "businessEntityName": "饮品", "positionRatio": 1 }, { "monthDate": "2022-02", "businessModel": null, "position": null, "businessEntityName": "奇厨", "positionRatio": 1 }, { "monthDate": "2022-02", "businessModel": null, "position": null, "businessEntityName": "烹饪", "positionRatio": 1 }, { "monthDate": "2022-02", "businessModel": null, "position": null, "businessEntityName": "电动", "positionRatio": 1 }, { "monthDate": "2022-02", "businessModel": null, "position": null, "businessEntityName": "电磁", "positionRatio": 1 }, { "businessEntityName": "电磁", "businessModel": "自营", "position": "高端机", "positionRatio": 0.23 }, { "businessEntityName": "电磁", "businessModel": "自营", "position": "入口机", "positionRatio": 0.23 }]
+        let a = [{ "monthDate": "2022-03", "businessModel": null, "position": null, "businessEntityName": "环境", "positionRatio": 1 }, { "monthDate": "2022-03", "businessModel": null, "position": null, "businessEntityName": "饮品", "positionRatio": 1 }, { "monthDate": "2022-03", "businessModel": null, "position": null, "businessEntityName": "奇厨", "positionRatio": 1 }, { "monthDate": "2022-03", "businessModel": null, "position": null, "businessEntityName": "烹饪", "positionRatio": 1 }, { "monthDate": "2022-03", "businessModel": null, "position": null, "businessEntityName": "电动", "positionRatio": 1 }, { "monthDate": "2022-03", "businessModel": null, "position": null, "businessEntityName": "电磁", "positionRatio": 1 }, { "businessEntityName": "电磁", "businessModel": "自营", "position": "高端机", "positionRatio": 0.23 }, { "businessEntityName": "电磁", "businessModel": "自营", "position": "入口机", "positionRatio": 0.23 }]
 
         a.filter(v => {
           if (!obj[v.businessEntityName + v.businessModel]) {

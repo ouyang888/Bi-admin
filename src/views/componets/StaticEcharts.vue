@@ -4,7 +4,7 @@
       <template v-if="title">
         <div class="item" v-for="(item, index) in labelData" :key="index">
           <div class="lump" :class="item.class"></div>
-          <div class="text">{{ item.text }}</div>
+          <div class="text">{{ item.text }}</div> 
         </div>
       </template>
     </div>
@@ -38,17 +38,6 @@ export default {
   setup(props, context) {
     const Store = useStore();
     const Route = useRouter();
-    let division = JSON.parse(localStorage.getItem("getDirectTotalInnerChart"));
-    let directOnline = JSON.parse(localStorage.getItem("innerDirect"));
-    let directOut = JSON.parse(localStorage.getItem("outerDirect"));
-
-    let getGeneral = JSON.parse(localStorage.getItem("getGeneral"));
-    let getInnerDirectOnline = JSON.parse(
-      localStorage.getItem("getInnerDirectOnline")
-    );
-    let getInnerDirectLineDown = JSON.parse(
-      localStorage.getItem("getInnerDirectLineDown")
-    );
 
     //销向汇总趋势图
     let dataList = reactive({
@@ -79,7 +68,6 @@ export default {
     path = computed(() => {
       return Store.state.currentPath;
     });
-
     let name = path.value;
 
     watch(
@@ -87,39 +75,41 @@ export default {
       (newVal, old) => {
         switch (newVal) {
           case "s":
+            let division = JSON.parse(localStorage.getItem("getDirectTotalInnerChart"));
+            let directOnline = JSON.parse(localStorage.getItem("innerDirect"));
+            let directOut = JSON.parse(localStorage.getItem("outerDirect"));
             dataList.divisionListArr = division.divisionCnyAmt;
             dataList.divisionDateArr = division.divisionDate;
             dataList.getGeneralDateArr = directOnline.innerDirectDate;
             dataList.getGeneralListArr = directOnline.innerDirectCnyAmt;
-            dataList.directOutDateArr = directOut.outerDirectDate;
+            dataList.directOutDateArr = directOut.outerDirectDate
             dataList.directOuListArr = directOut.outerDirectCnyAmt;
             dataList.divisionLine = division.divisionLine;
             dataList.getGeneraLine = directOnline.getGeneraLine;
-            dataList.directOuListLine = directOut.directOuListLine;
+            dataList.directOuListLine = directOut.directOuListLine; 
             break;
           case "domestic":
+            let getGeneral = JSON.parse(localStorage.getItem("getGeneral"));
+            let getInnerDirectLineDown = JSON.parse(localStorage.getItem("getInnerDirectLineDown"));
+            let getInnerDirectOnline = JSON.parse(localStorage.getItem("getInnerDirectOnline"));
             panelList.panelListArr = getGeneral.general;
             panelList.panelDateArr = getGeneral.generalDate;
-
-            panelList.getPanelDateArr = getInnerDirectOnline.onLineDate;
+            panelList.getPanelDateArr = getInnerDirectOnline.onLineDate;  
             panelList.getPanelListArr = getInnerDirectOnline.lineTotalCnyAmt;
-
             panelList.panelOutDateArr = getInnerDirectLineDown.lineDownDate;
-            panelList.panelOuListArr = getInnerDirectLineDown.lineDownTotalCnyAmt;
+            panelList.panelOuListArr =getInnerDirectLineDown.lineDownTotalCnyAmt;
 
-            panelList.panelonLine = division.allLine;
-            panelList.getPanelLine = directOnline.lineX;
-            panelList.panelOuListLine = directOut.lineDownLine;
+            // panelList.panelonLine = division.allLine;
+            // panelList.getPanelLine = directOnline.lineX;
+            // panelList.panelOuListLine = directOut.lineDownLine;
             break;
         }
       },
       { immediate: true }
     );
-console.log("11111++++",name)
-console.log("22222++++",props.title)
+
     const data = reactive({
-      
-      msg: 123,
+     
       xAxis: {
         axisLabel: {
           formatter: function (val) {
@@ -148,23 +138,23 @@ console.log("22222++++",props.title)
           left: "5%",
           right: "3%",
           bottom: "3%",
-          containLabel: true, 
+          containLabel: true,
         },
         xAxis: {
-          type: "category", 
-          boundaryGap: false,  
+          type: "category",
+          boundaryGap: false,
           data:
-            name === "s" && props.title === "事业部"
+            name == "s" && props.title == "事业部"
               ? dataList.divisionDateArr
-              : name === "s" && props.title === "外销"
+              : name == "s" && props.title == "外销"
               ? dataList.directOutDateArr
-              : name === "s" && props.title === "内销"
+              : name == "s" && props.title == "内销"
               ? dataList.getGeneralDateArr
-              : name === "domestic" && props.title === "内销"
+              : name == "domestic" && props.title == "内销"
               ? panelList.getPanelDateArr
-              : name === "domestic" && props.title === "线上" 
+              : name == "domestic" && props.title == "线上"
               ? panelList.getPanelDateArr
-              : name === "domestic" && props.title === "线下"
+              : name == "domestic" && props.title == "线下"
               ? panelList.panelOutDateArr
               : "",
           axisTick: {
@@ -224,7 +214,7 @@ console.log("22222++++",props.title)
                 ? panelList.panelListArr
                 : name === "domestic" && props.title === "线上"
                 ? panelList.getPanelListArr
-                : name === "domestic" && props.title === "线下" 
+                : name === "domestic" && props.title === "线下"
                 ? panelList.panelOuListArr
                 : "",
             markLine: {

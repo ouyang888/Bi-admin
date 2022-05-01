@@ -2691,10 +2691,10 @@ export default {
     watch(tableList, (newVal, oldVal) => {});
     watch(data.innerTableList, (newVal, oldVal) => {
 
-    });
+    },  { immediate: true });
     watch(data.outerTableList, (newVal, oldVal) => {
       // data.outerTableList = ...newVal;
-    });
+    },  { immediate: true });
     watch(
       () => Route.currentRoute.value.name,
       (newVal, oldVal) => {
@@ -2702,7 +2702,7 @@ export default {
           case "s":
             data.directName = "内销";
             data.directName2 = "外销";
-            console.log(Store.state.tableList, "tableListtableList");
+            // console.log(Store.state.tableList, "tableListtableList");
             // Store.commit("setTableList", data.tableList);
             break;
           case "domestic":

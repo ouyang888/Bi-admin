@@ -228,6 +228,7 @@ export default defineComponent({
   height: 287px;
   margin: 5px auto 0;
   border-color: #1e1d51;
+  background: #070640;
 }
 
 :deep(.el-table--enable-row-hover .el-table__body tr:hover > td) {
